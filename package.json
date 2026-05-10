@@ -1,0 +1,64 @@
+{
+  "name": "confidential-agent-runtime",
+  "version": "0.1.0",
+  "description": "Local prototype for private AI-agent execution with sealed secrets, env allowlisting, and run evidence.",
+  "type": "module",
+  "bin": {
+    "confagent": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "check": "npm run typecheck && npm test && npm run build",
+    "format:check": "prettier \"**/*.{md,json,yml,yaml,ts}\" --check",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run check",
+    "confagent": "tsx src/cli.ts"
+  },
+  "keywords": [
+    "confidential-ai",
+    "ai-agent",
+    "sealed-secrets",
+    "private-runtime",
+    "llm-security",
+    "local-first"
+  ],
+  "homepage": "https://github.com/David-Wu1119/confidential-agent-runtime#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Wu1119/confidential-agent-runtime.git"
+  },
+  "bugs": {
+    "url": "https://github.com/David-Wu1119/confidential-agent-runtime/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "commander": "^14.0.2",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}

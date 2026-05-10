@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.confagent/
+*.sealed.json
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
